@@ -24,10 +24,10 @@ viewer.cam.distance = model.stat.extent * 5.0
 
 t = 0
 while True:
-    # sim.data.ctrl[0] = 4.1
-    # sim.data.ctrl[1] = 0
-    # sim.data.ctrl[2] = 0
-    # sim.data.ctrl[3] = 0
+    sim.data.ctrl[0] = 3.9
+    sim.data.ctrl[1] = 0
+    sim.data.ctrl[2] = 0
+    sim.data.ctrl[3] = 0
     
     t += 1
     sim.step()

@@ -1,6 +1,8 @@
-<mujoco model="bbq0">
-	<compiler inertiafromgeom="true" coordinate="local"/>
-	<option	timestep="0.01" gravity="0 0 -9.81" density="1" viscosity="1e-5" />
+<mujoco model="bbq">
+	<compiler inertiafromgeom="auto" coordinate="local"/>
+    <option timestep='0.001' iterations="50" solver="PGS" gravity="0 0 -9.81" density="1" viscosity="1e-5">
+        <flag energy="enable"/>
+    </option>
 	<worldbody>
 		<geom name="floor" pos="0 0 -4" size="2 2 .2" type="plane"  conaffinity="1" rgba="1 1 1 1" condim="3"/>
 		<body name="quadrotor" pos="0 0 -2">
@@ -32,7 +34,8 @@
 		</body>
         <body name="ball" pos="0 0 -1">
             <joint name="ball_joint" type="free" />
-            <geom name="ball" type="sphere" size=".05" solref="0.01 -0.4" mass = ".01"/>
+            <!-- <geom name="ball" type="sphere" size=".05" solref="0.01 -0.4" mass = ".01"/> -->
+            <geom name="ball" type="sphere" size=".05" solref="0.001 -0.88" mass = ".01"/>
         </body>
 	</worldbody>
     <actuator>

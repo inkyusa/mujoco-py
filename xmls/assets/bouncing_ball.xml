@@ -3,7 +3,7 @@
 
 <mujoco model='bouncingball'>
     <compiler inertiafromgeom='auto' angle='radian'/>
-    <option timestep='0.002' iterations="50" solver="PGS">
+    <option timestep='0.002' iterations="50" solver="PGS" gravity="0 0 -9.81" density="1" viscosity="1e-5">
         <flag energy="enable"/>
     </option>
     <visual>
@@ -23,10 +23,11 @@
     </asset>
     <worldbody>
       <light directional='true' diffuse='.8 .8 .8' specular='0.3 0.3 0.3' pos='0 0 4.0' dir='0 -.15 -1'/>
-      <geom name='floor' pos='0 0 0' size='1 1 .125' type='plane' material="MatPlane"/>
+      <!-- <geom name='floor' pos='0 0 0' size='1 1 .125' type='plane' material="MatPlane"/> -->
+      <geom name='floor' pos='0 0 0' size='1 1 .125' type='plane'/>
       <body name='ball' pos='0 0 1.5'>
         <joint name="ball_joint" type="free" />
-        <geom name='ball' size='.05' type='sphere' solref="0.02 -0.85" /> 
+        <geom name='ball' size='.05' type='sphere' solref="0.02 -0.85" mass = "0.01"/> 
         <!-- according to this comment http://www.mujoco.org/forum/index.php?threads/fully-elastic-collisions.3656/ -->
       </body>
     </worldbody>
