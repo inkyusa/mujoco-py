@@ -18,7 +18,7 @@ sim = MjSim(model)
 viewer = MjViewer(sim)
 
 viewer.cam.trackbodyid = 1
-viewer.cam.distance = model.stat.extent * 5.0
+viewer.cam.distance =  5.0
 #viewer.cam.lookat[2] += .8
 #viewer.cam.elevation = -20
 
